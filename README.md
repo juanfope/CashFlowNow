@@ -27,3 +27,5 @@ Facilitar el acceso de administración a datos financieros de una empresa encarg
 -	La IA no debe estar en contacto directo con el usuario, solo por medio de un menú con preguntas predefinidas.
 -	La aplicación debe poder funcionar incluso si hay fallos en la comunicación con el api de cambio de divisas, se dará el mensaje de error dado el caso.
 ## Riesgos:
+- Información filtrada
+- Falta de conectividad
