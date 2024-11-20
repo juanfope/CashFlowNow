@@ -1,6 +1,7 @@
 # CashFlowNow
 ## Objetivo: 
 Facilitar el acceso de administración a datos financieros de una empresa encargada de venta de productos coleccionables. Se busca poder acceder por medio de una aplicación móvil al balance general y la forma en que están distribuidos los ingresos del negocio, habilitando la capacidad de ingresar datos de una nueva venta (Numero de referencia/as, unidad/es vendidas, método de pago, vueltas y en que medio se dieron).
+
 ##Criterios de éxito:
 -	Creación y utilización de credenciales de acceso.
 -	Registro sin complicaciones de información de nuevas ventas, con un tiempo de respuesta de máximo 5 segundos.
