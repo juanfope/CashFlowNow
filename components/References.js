@@ -40,10 +40,10 @@ import { useNavigation } from '@react-navigation/native';
                     <Text style={styles.name}>{name}</Text>
                     <AntDesign onPress={onDelete} name='delete' size={24}/>
                 </View>
-                <Text style={styles.sku}>{SKU}</Text>
-                <Text style={styles.precioVenta}>${precioVenta}</Text>
-                <Text style={styles.precioCompra}>${precioCompra}</Text>
-                <Text style={styles.unidadesDisp}>{unidadesDisp}</Text>
+                <Text style={styles.sku}>SKU: {SKU}</Text>
+                <Text style={styles.precioVenta}>PDV: ${precioVenta}</Text>
+                <Text style={styles.precioCompra}>Costo: ${precioCompra}</Text>
+                <Text style={styles.unidadesDisp}>{unidadesDisp} unidad/es disponibles</Text>
                 <Text style={styles.descripcion}>{descripcion}</Text>
                 <Button title="Editar referencia" onPress={onRefEdit} color="#e74c3c"/>
             </View>
