@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import RegVentaScreen from '../screens/RegVentasScreen';
 import RefScreen from '../screens/RefScreen';
