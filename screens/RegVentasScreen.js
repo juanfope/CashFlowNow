@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { View, StyleSheet, ActivityIndicator, Button } from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
 import { database } from "../AuthContext";
-import { collection, getDocs, addDoc } from "firebase/firestore";
+import { collection, getDocs, addDoc, updateDoc, doc, getDoc } from "firebase/firestore";
 import { TextInput } from "react-native-gesture-handler"
 import { useNavigation } from "@react-navigation/native"
 
@@ -67,7 +67,7 @@ const RegVentaScreen = () => {
     { label: "No aplica", value: "N/A" },
   ]);
 
-  //función para guardar los datos
+  //registro de transacción
   const onRegisterCreation = async () => {
     if (!value || !dropdownValue || !valueMoney || !valor || !valueChange || !valorCambio) {
       alert("Por favor completa todos los campos.");
@@ -78,12 +78,32 @@ const RegVentaScreen = () => {
       await addDoc(collection(database, "transacciones"), {
         tipoTransaccion: value,        
         referencia: dropdownValue.name,
-        fuenteDinero: valueMoney,    
-        valor: parseFloat(valor),    
-        fuenteCambio: valueChange,    
+        fuenteDinero: valueMoney,
+        valor: parseFloat(valor),
+        fuenteCambio: valueChange,
         valorCambio: parseFloat(valorCambio),
-        fecha: new Date(), 
+        fecha: new Date(),
       });
+  
+      const refDoc = doc(database, "referencias", dropdownValue.id);
+      const docSnap = await getDoc(refDoc);
+  
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        let unidadesActuales = parseInt(data.unidadesDisp, 10);
+  
+        if (value === "Compra") {
+          unidadesActuales += 1;
+        } else if (value === "Venta") {
+          unidadesActuales -= 1;
+        }
+  
+        await updateDoc(refDoc, {
+          unidadesDisp: unidadesActuales.toString(),
+        });
+      } else {
+        console.error("Referencia no encontrada en la colección 'referencias'.");
+      }
   
       alert("Transacción registrada con éxito.");
       navigation.navigate("Historial");
@@ -93,8 +113,6 @@ const RegVentaScreen = () => {
     }
   };
   
-  
-
   return (
     <View style={styles.container}>
       <View style={styles.dropdownWrapper}>
