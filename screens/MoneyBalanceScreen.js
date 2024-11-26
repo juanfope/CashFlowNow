@@ -19,14 +19,34 @@ const MoneyBalanceScreen = () => {
 
         snapshot.docs.forEach((doc) => {
           const data = doc.data();
-          const { fuenteDinero, valor, fuenteCambio, valorCambio } = data;
+          const { fuenteDinero, valor, fuenteCambio, valorCambio, tipoTransaccion } = data;
 
-          if (fuenteDinero && valor) {
-            newBalances[fuenteDinero] += parseFloat(valor);
-          }
+          const parsedValor = parseFloat(valor) || 0;
+          const parsedValorCambio = parseFloat(valorCambio) || 0;
 
-          if (fuenteCambio && valorCambio) {
-            newBalances[fuenteCambio] -= parseFloat(valorCambio);
+          // Actualizar balances dependiendo del tipo de transacción
+          if (tipoTransaccion) {
+            if (["venta", "consignación"].includes(tipoTransaccion.toLowerCase())) {
+              // Sumar el valor al medio de pago principal
+              if (fuenteDinero) {
+                newBalances[fuenteDinero] += parsedValor;
+              }
+              // Restar el valor de cambio del medio de pago secundario
+              if (fuenteCambio) {
+                newBalances[fuenteCambio] -= parsedValorCambio;
+              }
+            } else if (["compra", "retiro"].includes(tipoTransaccion.toLowerCase())) {
+              // Restar el valor del medio de pago principal
+              if (fuenteDinero) {
+                newBalances[fuenteDinero] -= parsedValor;
+              }
+              // Sumar el valor de cambio al medio de pago secundario
+              if (fuenteCambio) {
+                newBalances[fuenteCambio] += parsedValorCambio;
+              }
+            }
+          } else {
+            console.warn("Transacción sin tipo especificado:", data);
           }
         });
 

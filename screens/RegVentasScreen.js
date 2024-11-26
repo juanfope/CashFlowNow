@@ -231,7 +231,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   dropdownWrapper: {
-    margin: 15
+    margin: 20
   },
   dropdown: {
     borderColor: "#ddd",

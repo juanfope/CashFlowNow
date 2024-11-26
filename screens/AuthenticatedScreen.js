@@ -56,6 +56,7 @@ const AuthenticatedScreen = ({ navigation }) => {
 
 
     return (
+      <View style={styles.container}>
         <View style={styles.authContainer}>
             <Text style={styles.title}>Welcome</Text>
             <Text style={styles.emailText}>{user?.email || "CORREO"}</Text>
@@ -63,6 +64,7 @@ const AuthenticatedScreen = ({ navigation }) => {
             <Text style={styles.total}>${totalBalance.toFixed(2)}</Text>
             <Button title="Logout" onPress={handleLogout} color="#e74c3c" />
         </View>
+      </View>
     );
 };
 

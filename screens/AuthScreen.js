@@ -27,6 +27,7 @@ const AuthScreen = ({ navigation }) => {
     };
 
     return (
+      <View style={styles.container}>
         <View style={styles.authContainer}>
             <Text style={styles.title}>{isLogin ? 'Inicio de sesión' : 'Registro'}</Text>
 
@@ -54,6 +55,7 @@ const AuthScreen = ({ navigation }) => {
                 </Text>
             </View>
         </View>
+      </View>
     );
 };
 
