@@ -69,15 +69,15 @@ const MoneyBalanceScreen = () => {
     <View style={styles.container}>
       <Text style={styles.title}>Balances de Medios de Pago</Text>
       <View style={styles.balanceContainer}>
-        <View style={styles.card}>
+        <View style={styles.e}>
           <Text style={styles.label}>Efectivo</Text>
           <Text style={styles.value}>${balances.Efectivo.toFixed(2)}</Text>
         </View>
-        <View style={styles.card}>
+        <View style={styles.nq}>
           <Text style={styles.label}>Nequi</Text>
           <Text style={styles.value}>${balances.Nequi.toFixed(2)}</Text>
         </View>
-        <View style={styles.card}>
+        <View style={styles.mp}>
           <Text style={styles.label}>MercadoPago</Text>
           <Text style={styles.value}>${balances.MercadoPago.toFixed(2)}</Text>
         </View>
@@ -104,10 +104,24 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     gap: 16,
   },
-  card: {
+  e: {
     padding: 16,
     borderRadius: 8,
-    backgroundColor: "#f5f5f5",
+    backgroundColor: "#02e373",
+    alignItems: "center",
+    elevation: 2,
+  },
+  nq: {
+    padding: 16,
+    borderRadius: 8,
+    backgroundColor: "#ba0687",
+    alignItems: "center",
+    elevation: 2,
+  },
+  mp: {
+    padding: 16,
+    borderRadius: 8,
+    backgroundColor: "#f5d60c",
     alignItems: "center",
     elevation: 2,
   },
