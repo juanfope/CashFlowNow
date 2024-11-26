@@ -1,4 +1,5 @@
 # CashFlowNow
+## MVP: https://www.figma.com/design/SkhGxGtGWMCFIIR1pcYcJh/proyecto-movil-final?node-id=0-1&node-type=canvas&t=Vg5yo4gQYRGvr1u5-0
 ## Objetivo: 
 Facilitar el acceso de administración a datos financieros de una empresa encargada de venta de productos coleccionables. Se busca poder acceder por medio de una aplicación móvil al balance general y la forma en que están distribuidos los ingresos del negocio, habilitando la capacidad de ingresar datos de una nueva venta (Numero de referencia/as, unidad/es vendidas, método de pago, vueltas y en que medio se dieron).
 
